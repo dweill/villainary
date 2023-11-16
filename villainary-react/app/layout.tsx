@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import ThemeRegistry from './ThemeRegistry';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import Providers from './providers/Provider';
 
 export const metadata: Metadata = {
   title: 'Villainary',
@@ -15,8 +13,12 @@ export default function RootLayout(props: { children: any }) {
   const { children } = props;
   return (
     <html lang="en">
-      <body>
-        <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+      <body className="body">
+        <main className="flex min-h-screen  items-center justify-center p-24">
+          <Providers>
+            <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+          </Providers>
+        </main>
       </body>
     </html>
   );

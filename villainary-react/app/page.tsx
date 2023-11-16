@@ -1,14 +1,13 @@
-import Button from '@mui/material/Button';
+'use client';
+
+import Container from '@mui/material/Container';
+import VillainIntakeForm from './VillainIntakeForm';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen  items-center justify-center p-24">
-      <div className="relative flex flex-col place-items-center">
-        <h1 className="text-9xl mb-12">Villainary</h1>
-        <Button className="block mt-12" variant="contained">
-          Become a Villain
-        </Button>
-      </div>
-    </main>
+    <Container maxWidth="sm">
+      <h1 className="text-9xl pb-8">Villainary</h1>
+      <VillainIntakeForm></VillainIntakeForm>
+    </Container>
   );
 }
