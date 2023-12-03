@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Navbar from './Navbar';
 import ThemeRegistry from './ThemeRegistry';
 import './globals.css';
 import Providers from './providers/Provider';
@@ -14,11 +15,14 @@ export default function RootLayout(props: { children: any }) {
   return (
     <html lang="en">
       <body className="body">
-        <main className="flex min-h-screen  items-center justify-center p-24">
-          <Providers>
-            <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
-          </Providers>
-        </main>
+        <Providers>
+          <ThemeRegistry options={{ key: 'mui' }}>
+            <Navbar></Navbar>
+            <main className="flex min-h-screen  items-center justify-center p-24">
+              {children}
+            </main>
+          </ThemeRegistry>
+        </Providers>
       </body>
     </html>
   );
