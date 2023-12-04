@@ -14,7 +14,7 @@ export default function Home() {
 
     useEffect(() => {
         if (villainName) {
-            router.push(Routes.PROFILE);
+            router.push(Routes.DASHBOARD);
         }
     }, [villainName]);
 
