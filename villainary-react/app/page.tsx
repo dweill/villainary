@@ -13,7 +13,7 @@ export default function Home() {
     const villainName = useSelector(selectUserState).villainName;
 
     useEffect(() => {
-        if (villainName != undefined && villainName.length > 0) {
+        if (villainName) {
             router.push(Routes.PROFILE);
         }
     }, [villainName]);
