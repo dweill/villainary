@@ -1,15 +1,12 @@
 import { Button, Grid, TextField } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { theme } from './Theme';
 import { IntakeFormInputs } from './interfaces/IntakeFormInputs';
 import { setVillainName } from './state/userState.slice';
-import {Routes} from "@/app/enums/routes";
 
 export default function VillainIntakeForm() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
