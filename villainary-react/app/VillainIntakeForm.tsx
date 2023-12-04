@@ -1,5 +1,4 @@
 import { Button, Grid, TextField } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { theme } from './Theme';
@@ -8,13 +7,11 @@ import { setVillainName } from './state/userState.slice';
 
 export default function VillainIntakeForm() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IntakeFormInputs>();
 
-  const router = useRouter();
   const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<IntakeFormInputs> = (data) => {
