@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { theme } from './Theme';
 import { IntakeFormInputs } from './interfaces/IntakeFormInputs';
 import { setVillainName } from './state/userState.slice';
+import {Routes} from "@/app/enums/routes";
 
 export default function VillainIntakeForm() {
   const {
@@ -14,7 +15,6 @@ export default function VillainIntakeForm() {
     formState: { errors },
   } = useForm<IntakeFormInputs>();
 
-  const router = useRouter();
   const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<IntakeFormInputs> = (data) => {
