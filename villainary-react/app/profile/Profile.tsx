@@ -6,8 +6,9 @@ import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { theme } from '../Theme';
 import { Routes } from '../enums/routes';
-import { ProfileFormInputs } from '../interfaces/ProfileFormInputs';
 import { selectUserState } from '../state/userState.slice';
+import {IntakeFormInputs} from "@/app/interfaces/IntakeFormInputs";
+import {useEffect} from "react";
 
 export default function Profile() {
   const {
@@ -15,8 +16,7 @@ export default function Profile() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ProfileFormInputs>();
-  const dispatch = useDispatch();
+  } = useForm<IntakeFormInputs>();
   const router = useRouter();
 
   const villainName = useSelector(selectUserState).villainName;

@@ -1,5 +1,7 @@
 import { Container } from '@mui/material';
-import Profile from './Profile';
+import dynamic from "next/dynamic";
+
+const Profile = dynamic(() => import('./Profile'), { ssr: false });
 
 export default function Page() {
   return (
