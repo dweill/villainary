@@ -1,6 +1,6 @@
 'use client';
 import { Check, Edit } from '@mui/icons-material';
-import { Grid, TextField } from '@mui/material';
+import { Grid, IconButton, TextField } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { SyntheticEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -84,9 +84,13 @@ export default function Profile() {
         </Grid>
         <Grid item xs={4}>
           {editModeToggled ? (
-            <Check onClick={handleVillainNameUpdate} />
+            <IconButton onClick={handleVillainNameUpdate} aria-label="save">
+              <Check />
+            </IconButton>
           ) : (
-            <Edit onClick={toggleEditModeOn} />
+            <IconButton onClick={toggleEditModeOn} aria-label="edit">
+              <Edit />
+            </IconButton>
           )}
         </Grid>
       </Grid>
