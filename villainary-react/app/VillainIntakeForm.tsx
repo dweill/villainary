@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { theme } from './Theme';
 import { IntakeFormInputs } from './interfaces/IntakeFormInputs';
 import { setVillainName } from './state/userState.slice';
+import {trimWhitespaceValidator} from "@/app/forms/validators/textFieldValidators";
 
 export default function VillainIntakeForm() {
   const {
@@ -24,7 +25,7 @@ export default function VillainIntakeForm() {
           <TextField
             fullWidth
             placeholder="Seize your identity"
-            {...register('villainName', { required: true })}
+            {...register('villainName', { required: true , validate: v => trimWhitespaceValidator(v)})}
             sx={{ backgroundColor: theme.palette.primary.main }}
           />
           {errors.villainName && <span>This field is required</span>}
