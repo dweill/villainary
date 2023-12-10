@@ -1,8 +1,7 @@
 import Container from "@mui/material/Container";
-import DashboardCard from './DashboardCard';
-import { useSelector } from "react-redux";
-import { selectUserState } from "@/app/state/userState.slice";
+import dynamic  from "next/dynamic";
 
+const DashboardCard = dynamic(() => import('./DashboardCard'), {ssr: false});
 export default function Page() {
     return (
         <Container maxWidth="sm">
