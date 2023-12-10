@@ -1,10 +1,10 @@
 # Stage 1: Install dependencies
 FROM node:18-alpine AS deps
 RUN apk add --no-cache libc6-compat
-WORKDIR /app/villainary-react
+WORKDIR /app
 
-COPY villainary-react/package.json ./
-COPY villainary-react/package-lock.json ./
+COPY ./package.json ./
+COPY ./package-lock.json ./
 RUN npm install --production
 
 # Stage 2: Build the Next.js application
