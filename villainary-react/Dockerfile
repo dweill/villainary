@@ -16,6 +16,7 @@ COPY . .
 
 WORKDIR /app/villainary-react
 
+# Disables general use data collection for Next.js.  Read more here: https://nextjs.org/telemetry
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN npm run build

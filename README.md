@@ -1,5 +1,4 @@
 # Villainary
-Villainary is a technical project built with Next.js, aiming to showcase an array of intriguing villains.  The project may grow to include various backend and frontend technologies to demonstrate mastery across multiple paradigms.
 
 ## Prerequisites
 
