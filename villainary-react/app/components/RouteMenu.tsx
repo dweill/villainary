@@ -1,13 +1,13 @@
 import { Menu, MenuItem } from '@mui/material';
 import { theme } from '../Theme';
 import { BaseMenuItem } from '../interfaces/BaseMenuItem';
-import { SettingsMenuProps } from '../interfaces/SettingsMenuProps';
+import { RouteMenuProps } from '../interfaces/RouteMenuProps';
 
-export default function SettingsMenu(props: SettingsMenuProps) {
+export default function RouteMenu(props: RouteMenuProps) {
     const { anchorEl, handleClose, menuItems } = props;
     return (
         <Menu
-            id="menu-appbar"
+            id="route-menu-appbar"
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: 'top',
