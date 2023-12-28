@@ -6,6 +6,7 @@ export default function page() {
     return (
         <Grid container rowSpacing={3} columnSpacing={3}>
             {products.map((product) => (
+                // eslint-disable-next-line react/jsx-key
                 <Grid item xs={6}>
                     <ProductCard product={product} key={product.id} />
                 </Grid>

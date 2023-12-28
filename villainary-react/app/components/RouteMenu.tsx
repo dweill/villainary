@@ -25,9 +25,9 @@ export default function RouteMenu(props: RouteMenuProps) {
                 <MenuItem
                     key={i}
                     sx={{
-                        backgroundColor: theme.palette.primary.main,
+                        color: {color: theme.palette.text.secondary},
                         '&:hover': {
-                            backgroundColor: theme.palette.primary.light,
+                            color: theme.palette.secondary.main,
                         },
                     }}
                     onClick={menuItem.handleClick}
