@@ -1,26 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { AppState } from "./store";
-
+import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { AppState } from './store';
 
 // Type for our state
 export interface UserState {
-  villainName: string;
+    villainName: string;
+    currentFunds: number;
 }
 
 // Initial state
 const initialState: UserState = {
-  villainName: '',
+    villainName: '',
+    currentFunds: 100_000,
 };
 
 // Actual Slice
 export const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {
-    setVillainName(state, action) {
-      state.villainName = action.payload;
+    name: 'user',
+    initialState,
+    reducers: {
+        setVillainName(state, action) {
+            state.villainName = action.payload;
+        },
+        updateCurrentFunds(state, action) {
+            state.currentFunds += action.payload;
+        },
     },
-  },
 });
 
 export const { setVillainName } = userSlice.actions;
