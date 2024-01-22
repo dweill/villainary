@@ -1,6 +1,9 @@
 export enum Routes {
-  DASHBOARD = 'dashboard',
-  PROFILE = 'profile',
-  PRODUCTS = 'products',
-  ROOT = '/',
+    DASHBOARD = 'dashboard',
+    HENCHMAN = 'henchman',
+    LAIRS = 'lairs',
+    PLANS = 'plans',
+    PROFILE = 'profile',
+    PRODUCTS = 'products',
+    ROOT = '/',
 }

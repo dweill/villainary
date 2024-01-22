@@ -16,15 +16,22 @@ export default function Navbar() {
 
     const villainName = useSelector(selectUserState).villainName;
 
-    const handleProfileClick = () => {
-        router.push(`/${Routes.PROFILE}`);
+    const handleClick = (route: Routes) => {
+        return () => {
+            router.push(`/${route}`);
+        };
     };
-    const handleProductsClick = () => {
-        router.push(`/${Routes.PRODUCTS}`);
-    };
+    const handleProductsClick = handleClick(Routes.PRODUCTS);
+    const handlePlansClick = handleClick(Routes.PLANS);
+    const handleProfileClick = handleClick(Routes.PROFILE);
+    const handleLairsClick = handleClick(Routes.LAIRS);
+    const handleHenchmanClick = handleClick(Routes.HENCHMAN);
 
     const routeMenuItems: BaseMenuItem[] = [
         { title: 'Products', handleClick: handleProductsClick },
+        { title: 'Plans', handleClick: handlePlansClick },
+        { title: 'Lairs', handleClick: handleLairsClick },
+        { title: 'Henchman', handleClick: handleHenchmanClick },
     ];
     const settingsMenuItems: BaseMenuItem[] = [
         { title: 'Profile', handleClick: handleProfileClick },
