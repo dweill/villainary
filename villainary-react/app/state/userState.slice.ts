@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from './store';
 
 // Type for our state
@@ -19,10 +19,13 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setVillainName(state, action) {
-            state.villainName = action.payload;
+            return { ...state, villainName: action.payload };
         },
         updateCurrentFunds(state, action) {
-            state.currentFunds += action.payload;
+            return {
+                ...state,
+                currentFunds: state.currentFunds + action.payload,
+            };
         },
     },
 });
