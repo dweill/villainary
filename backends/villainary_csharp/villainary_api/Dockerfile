@@ -17,4 +17,6 @@ RUN dotnet publish "villainary_api.csproj" -c Release -o /app/publish /p:UseAppH
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+#EXPOSE 5050
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "villainary_api.dll"]

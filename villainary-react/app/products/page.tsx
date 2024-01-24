@@ -2,8 +2,21 @@ import { Grid } from '@mui/material';
 import Wallet from '../components/Wallet';
 import { products } from '../constants/products';
 import ProductCard from './ProductCard';
+import {Product} from "@/app/interfaces/Product";
 
-export default function page() {
+async function getData(): Promise<Product[]> {
+    // const res = await fetch(`http://${process.env.ASPNET_API_HOST}:8080/api/VillainaryProducts`);
+    try {
+        const res = await fetch(`http://${process.env.ASPNET_API_HOST}:8080/api/VillainaryProducts`);
+        return res.json();
+    } catch(error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+}
+export default async function page() {
+
+    const products = await getData();
     return (
         <Grid container rowSpacing={3}>
             <Grid item>

@@ -1,11 +1,48 @@
+# version: '3.8'
+
+# services:
+#   villainary-react:
+#     build:
+#       context: ./villainary-react
+#       target: runner
+#       dockerfile: Dockerfile
+#       args:
+#         - ASPNET_API_HOST=host.docker.internal
+#     volumes:
+#       - ./villainary-react:/app/villainary-react
+#     command: npm run dev
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       NODE_ENV: development
+#       ASPNET_API_HOST: "host.docker.internal"
+#   villainary-csharp:
+#     build:
+#       context: ./backends/villainary-csharp
+#       dockerfile: Dockerfile
+#     ports:
+#       - "5000:80"  # Change the port if needed
+
+
 version: '3.8'
 
 services:
+  villainary-csharp:
+    container_name: villainary-csharp
+    build:
+      context: ./backends/villainary_csharp/
+      dockerfile: ./villainary_api/Dockerfile
+    ports:
+    - "8080:8080"
+    networks:
+      - villainary
   villainary-react:
     build:
       context: ./villainary-react
       target: runner
       dockerfile: Dockerfile
+      args:
+        - ASPNET_API_HOST=villainary-csharp
     volumes:
       - ./villainary-react:/app/villainary-react
     command: npm run dev
@@ -13,3 +50,10 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
+      ASPNET_API_HOST: villainary-csharp
+    depends_on:
+      - villainary-csharp
+    networks:
+      - villainary
+networks:
+  villainary:

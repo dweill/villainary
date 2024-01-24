@@ -1,5 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder => builder
+            .WithOrigins("*")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -17,6 +26,7 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseRouting();
+app.UseCors("AllowSpecificOrigins");
 app.UseHttpsRedirection();
 
 // app.UseAuthorization();
