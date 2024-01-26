@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import Wallet from '../components/Wallet';
-import { products } from '../constants/products';
+import { products }  from '../constants/products';
 import ProductCard from './ProductCard';
 import {Product} from "@/app/interfaces/Product";
 
@@ -10,7 +10,7 @@ async function getData(): Promise<Product[]> {
         return res.json();
     } catch(error) {
         console.error('Error fetching data:', error);
-        return [];
+        return products;
     }
 }
 export default async function page() {
