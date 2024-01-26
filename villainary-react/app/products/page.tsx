@@ -5,9 +5,8 @@ import ProductCard from './ProductCard';
 import {Product} from "@/app/interfaces/Product";
 
 async function getData(): Promise<Product[]> {
-    // const res = await fetch(`http://${process.env.ASPNET_API_HOST}:8080/api/VillainaryProducts`);
     try {
-        const res = await fetch(`http://${process.env.ASPNET_API_HOST}:8080/api/VillainaryProducts`);
+        const res = await fetch(`http://${process.env.API_HOST}:8080/api/VillainaryProducts`);
         return res.json();
     } catch(error) {
         console.error('Error fetching data:', error);
