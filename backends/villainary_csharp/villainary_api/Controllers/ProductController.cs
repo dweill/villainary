@@ -13,7 +13,6 @@ namespace Villainary_api.Controllers{
         [Produces("application/json")] 
         public ActionResult<IEnumerable<ProductDto>> GetProducts()
         {
-            Console.WriteLine("GetProducts action called");
             return Ok(ProductStore.products);
         }
     }
