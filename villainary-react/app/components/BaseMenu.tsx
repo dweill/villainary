@@ -1,13 +1,13 @@
 import { Menu, MenuItem } from '@mui/material';
 import { theme } from '../Theme';
 import { BaseMenuItem } from '../interfaces/BaseMenuItem';
-import { SettingsMenuProps } from '../interfaces/SettingsMenuProps';
+import { BaseMenuProps } from '../interfaces/BaseMenuProps';
 
-export default function SettingsMenu(props: SettingsMenuProps) {
-    const { anchorEl, handleClose, menuItems } = props;
+export default function BaseMenu(props: BaseMenuProps<BaseMenuItem>) {
+    const { anchorEl, handleClose, menuItems, id } = props;
     return (
         <Menu
-            id="menu-appbar"
+            id={id}
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: 'top',
@@ -25,8 +25,10 @@ export default function SettingsMenu(props: SettingsMenuProps) {
                 <MenuItem
                     key={i}
                     sx={{
-                        color: {color: theme.palette.text.secondary},
+                        backgroundColor: theme.palette.primary.main,
+                        color: { color: theme.palette.text.secondary },
                         '&:hover': {
+                            backgroundColor: theme.palette.primary.light,
                             color: theme.palette.secondary.main,
                         },
                     }}
