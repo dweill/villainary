@@ -1,11 +1,22 @@
 version: '3.8'
 
 services:
+  villainary-csharp:
+    container_name: villainary-csharp
+    build:
+      context: ./backends/villainary_csharp/
+      dockerfile: ./villainary_api/Dockerfile
+    ports:
+    - "8080:8080"
+    networks:
+      - villainary
   villainary-react:
     build:
       context: ./villainary-react
       target: runner
       dockerfile: Dockerfile
+      args:
+        - API_HOST=villainary-csharp
     volumes:
       - ./villainary-react:/app/villainary-react
     command: npm run dev
@@ -13,3 +24,10 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
+      API_HOST: villainary-csharp
+    depends_on:
+      - villainary-csharp
+    networks:
+      - villainary
+networks:
+  villainary:

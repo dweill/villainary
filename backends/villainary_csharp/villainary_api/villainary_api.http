@@ -1,0 +1,6 @@
+@villainary_api_HostAddress = http://localhost:5063
+
+GET {{villainary_api_HostAddress}}/VillainaryProducts/
+Accept: application/json
+
+###
