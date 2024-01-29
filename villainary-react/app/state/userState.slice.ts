@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from './store';
 
 // Type for our state
@@ -27,7 +27,7 @@ export const userSlice = createSlice({
     },
 });
 
-export const { setVillainName } = userSlice.actions;
+export const { setVillainName, updateCurrentFunds } = userSlice.actions;
 
 export const selectUserState = (state: AppState): UserState => state.user;
 
