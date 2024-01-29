@@ -25,9 +25,11 @@ export default function BaseMenu(props: BaseMenuProps<BaseMenuItem>) {
                 <MenuItem
                     key={i}
                     sx={{
-                        backgroundColor: theme.palette.primary.main,
+                        backgroundColor: theme.palette.secondary.main,
+                        color: { color: theme.palette.text.primary },
                         '&:hover': {
                             backgroundColor: theme.palette.primary.light,
+                            color: theme.palette.text.primary,
                         },
                     }}
                     onClick={menuItem.handleClick}
