@@ -34,7 +34,6 @@ export default function VillainIntakeForm() {
                             required: true,
                             validate: (v) => trimWhitespaceValidator(v),
                         })}
-                        // sx={{ backgroundColor: theme.palette.primary.main }}
                     />
                     {errors.villainName && <span>This field is required</span>}
                 </Grid>
