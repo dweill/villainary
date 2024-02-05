@@ -3,21 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.wavy {
+    position: relative;
+}
+
+.wavy span {
+    animation-delay: calc(0.1s * var(--i));
+    animation: wave 1s ease-in-out infinite;
+    color: white;
+    display: inline-block;
+    font-size: 2rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    40%,
+    100% {
+        transform: translateY(0px);
+    }
 }
